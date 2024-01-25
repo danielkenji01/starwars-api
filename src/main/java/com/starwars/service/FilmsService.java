@@ -2,17 +2,17 @@ package com.starwars.service;
 
 import com.starwars.client.FilmsRestClient;
 import com.starwars.dto.Film;
-import com.starwars.dto.FilmWrapper;
+import com.starwars.dto.ListWrapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FilmsService {
+public class FilmsService implements BaseService<Film> {
 
     private final FilmsRestClient client;
 
-    public FilmWrapper getAll() {
+    public ListWrapper<Film> getAll() {
         return client.getAll();
     }
 
