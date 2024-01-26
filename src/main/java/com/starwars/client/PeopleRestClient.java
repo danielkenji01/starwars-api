@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface PeopleRestClient extends FeignRestClient<People> {
 
     @GetMapping
-    ListWrapper<People> getAll(@RequestParam(required = false) Integer page);
+    ListWrapper<People> getAll(@RequestParam(required = false) final Integer page);
 
     @GetMapping("/{id}")
     People getById(@PathVariable final Integer id);

@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/films")
 @Tag(name = "Films", description = "Films API")
-public class FilmsController {
+public class FilmsController implements BaseController<Film> {
 
     private final FilmsService filmsService;
 
     @Operation(summary = "Get all Films", tags = { "Films" })
     @GetMapping
-    public ResponseEntity<ListWrapper<Film>> getAll(@RequestParam(required = false, defaultValue = "1") final Integer page) {
+    public ResponseEntity<ListWrapper<Film>> getAll(final Integer page) {
         return ResponseEntity.ok(filmsService.getAll(page));
     }
 

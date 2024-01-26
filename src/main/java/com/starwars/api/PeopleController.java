@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/people")
 @Tag(name = "People", description = "People API")
-public class PeopleController {
+public class PeopleController implements BaseController<People> {
 
     private final PeopleService peopleService;
 
     @Operation(summary = "Get all People", tags = { "People" })
     @GetMapping
-    public ResponseEntity<ListWrapper<People>> getAll(@RequestParam(required = false, defaultValue = "1") final Integer page) {
+    public ResponseEntity<ListWrapper<People>> getAll(final Integer page) {
         return ResponseEntity.ok(peopleService.getAll(page));
     }
 

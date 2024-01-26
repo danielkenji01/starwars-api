@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface FilmsRestClient extends FeignRestClient<Film> {
 
     @GetMapping
-    ListWrapper<Film> getAll(@RequestParam(required = false) Integer page);
+    ListWrapper<Film> getAll(@RequestParam(required = false) final Integer page);
 
     @GetMapping("/{id}")
     Film getById(@PathVariable final Integer id);
