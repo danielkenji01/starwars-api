@@ -12,8 +12,8 @@ public class FilmsService implements BaseService<Film> {
 
     private final FilmsRestClient client;
 
-    public ListWrapper<Film> getAll() {
-        return client.getAll();
+    public ListWrapper<Film> getAll(final Integer page) {
+        return client.getAll(page);
     }
 
     public Film getById(final Integer id) {

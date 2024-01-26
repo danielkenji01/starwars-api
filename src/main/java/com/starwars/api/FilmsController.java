@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
@@ -22,8 +23,8 @@ public class FilmsController {
 
     @Operation(summary = "Get all Films", tags = { "Films" })
     @GetMapping
-    public ResponseEntity<ListWrapper<Film>> getAll() {
-        return ResponseEntity.ok(filmsService.getAll());
+    public ResponseEntity<ListWrapper<Film>> getAll(@RequestParam(required = false, defaultValue = "1") final Integer page) {
+        return ResponseEntity.ok(filmsService.getAll(page));
     }
 
     @Operation(summary = "Get Film by ID", tags = { "Films" })

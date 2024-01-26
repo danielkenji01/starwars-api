@@ -31,9 +31,9 @@ class FilmsServiceTest {
         final Film film = Film.builder().build();
         final ListWrapper<Film> wrapper = new ListWrapper<>(1, Collections.singletonList(film));
 
-        when(filmsRestClient.getAll()).thenReturn(wrapper);
+        when(filmsRestClient.getAll(anyInt())).thenReturn(wrapper);
 
-        final ListWrapper<Film> filmWrapper = filmsService.getAll();
+        final ListWrapper<Film> filmWrapper = filmsService.getAll(anyInt());
 
         assertEquals(1, filmWrapper.count());
         assertEquals(1, filmWrapper.results().size());
