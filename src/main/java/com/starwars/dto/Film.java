@@ -5,7 +5,9 @@ import java.util.List;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
+@Builder
 public record Film(String title, @JsonProperty("episode_id") Integer episodeId,
                    @JsonProperty("opening_crawl") String openingCrawl, String director, String producer,
                    @JsonProperty("release_date") Date releaseDate, List<String> characters, List<String> planets,
