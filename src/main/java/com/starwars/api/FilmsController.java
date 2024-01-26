@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/films/v1")
+@RequestMapping("/api/v1/films")
 public class FilmsController {
 
     private final FilmsService filmsService;
